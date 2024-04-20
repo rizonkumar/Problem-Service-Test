@@ -7,7 +7,7 @@ function errorHandler(err, req, res, next) {
       success: false,
       message: err.message,
       error: err.details,
-      data: {}, // because this is an exception so no data is going to be provided
+      data: {},
     });
   }
 
@@ -16,7 +16,7 @@ function errorHandler(err, req, res, next) {
     success: false,
     message: "Something went wrong",
     error: err,
-    data: {}, // because this is an exception so no data is going to be provided
+    data: {},
   });
 }
 
