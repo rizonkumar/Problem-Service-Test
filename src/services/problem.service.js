@@ -6,21 +6,19 @@ class ProblemService {
   }
 
   async createProblem(problemData) {
-    try {
-      // 1. Sanitize the markdown for description
-      problemData.description = sanitizeMarkdownContent(
-        problemData.description
-      );
+    // 1. Sanitize the markdown for description
+    problemData.description = sanitizeMarkdownContent(problemData.description);
 
-      console.log("problemData", problemData);
-      const problem = await this.problemRepository.createProblem(problemData);
+    console.log("problemData", problemData);
+    const problem = await this.problemRepository.createProblem(problemData);
 
-      console.log("problem created", problem);
-      return problem;
-    } catch (error) {
-      console.log(error);
-      throw Error;
-    }
+    console.log("problem created", problem);
+    return problem;
+  }
+
+  async getAllProblems() {
+    const problems = await this.problemRepository.getAllProblems();
+    return problems;
   }
 }
 
